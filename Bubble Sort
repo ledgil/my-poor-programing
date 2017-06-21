@@ -15,7 +15,7 @@ void sort(int a[],int n)
  	bool sigh; //a sign that whether the programing will process
  	for(int i=0;i<n-1;i++)  
  	{
- 		int j=0;
+ 		int j=n;
  		do                     
  		{
  			sigh=0;
