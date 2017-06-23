@@ -27,13 +27,13 @@ void sort(int a[],int n)
  				a[j]=temp;
  				sigh=1;
 			 }
-			 j++;
-		 }while(sigh=1&&j<n);
+			 j--;
+		 }while(sigh=1&&j>i);
 	 }
 	 cout<<"The result of the bubble sort is :"<<endl;
 	 for(int s=0;s<n;s++)
 	 {
-	 	cout<<a[s]<<"  ";
+	 	cout<<a[s]<<" ";
 	} 
  }
  
