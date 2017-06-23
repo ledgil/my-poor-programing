@@ -1,2 +1,2 @@
-# my-poor-programing
+# my-programing
 They are terrible
