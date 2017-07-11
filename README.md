@@ -1,2 +1,2 @@
 # my-programing
-emmmmm....
+my-programing
