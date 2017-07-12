@@ -1,3 +1,8 @@
+/*
+å•é“¾è¡¨
+java
+ç®€å•å®žçŽ°
+*/
 class Node{
 	int data;
 	Node next;
@@ -15,7 +20,7 @@ public class LinkList{
 		head=null;
 		rear=null;
 	}
-	//ÊäÈëÊý¾Ý
+	//è¾“å…¥æ•°æ®
 	public void input(int data){
 		Node s = new Node(data);
 		if(head ==null){
@@ -27,7 +32,7 @@ public class LinkList{
 		rear.next=null;
 		count++;
 	}
-	//´òÓ¡Êý¾Ý
+	//æ‰“å°æ•°æ®
 	public void output(){
 		Node p=head;
 		while(p!=null){
@@ -35,11 +40,11 @@ public class LinkList{
 			p=p.next;
 		}
 	}
-	//²åÈëÊý¾Ý
+	//æ’å…¥æ•°æ®
 	public void insert(int location,int data){
 		Node p=head;
 		if(location>count+1||location<1)
-			System.out.println("Î»ÖÃ´íÎó");
+			System.out.println("ä½ç½®é”™è¯¯");
 		if(location==1){
 			Node s=new Node(data);
 			s.next=head;
@@ -59,12 +64,12 @@ public class LinkList{
 		}
 		
 	}
-	//É¾³ýÊý¾Ý
+	//åˆ é™¤æ•°æ®
 	public void delete(int location){
 		Node p=head;
 		Node q=head;
 		if(location>count||location<1)
-			System.out.println("Î»ÖÃ´íÎó");
+			System.out.println("ä½ç½®é”™è¯¯");
 		else if(location==1){
 			head=head.next;
 		}
@@ -80,7 +85,7 @@ public class LinkList{
 			p.next=null;
 		}
 	}
-	//²éÕÒÊý¾Ý
+	//æŸ¥æ‰¾æ•°æ®
 	public int find(int location){
 		Node p=head;
 		if(location>count||location<1)
@@ -94,7 +99,7 @@ public class LinkList{
 		}
 		return p.data;
 	}
-	//ÅÅÐòÊý¾Ý
+	//æŽ’åºæ•°æ®
 	public void sort(){
 		Node p;
 		boolean sign=true;
