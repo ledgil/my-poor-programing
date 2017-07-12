@@ -1,35 +1,41 @@
+/*
+äºŒå‰æ ‘
+c++
+ç®€å•å®ç°
+ï¼ˆå¤´æ–‡ä»¶éƒ¨åˆ†ï¼‰
+*/
 #include"iostream"
 using namespace std;
 
 typedef struct bnode
 {
 	char data;
-	bnode *lchild, *rchild;//ÉèÖÃ×óº¢×ÓºÍÓÒº¢×Ó
+	bnode *lchild, *rchild;//è®¾ç½®å·¦å­©å­å’Œå³å­©å­
 }bnode;
 
 typedef struct Bitree
 {
 public:	
-	void creat_Bitree();							//³õÊ¼»¯¶ş²æÊ÷
-	void input(bnode **T);						//¶ş¼¶Ö¸Õëµİ¹éÊäÈë¶ş²æÊ÷
-	bnode* input2(bnode*T);					//Í¨¹ı·µ»ØÖµµİ¹éÊäÈë¶ş²æÊ÷
-	void preorder_output(bnode *T);		//ÏÈĞò±éÀú
-	void inorder_output(bnode *T);			//ÖĞĞò±éÀú
-	void lastorder_output(bnode *T);		//ºóĞò±éÀú
-	int bitree_count_all(bnode*T);			//¼ÆËã×Ü½áµãÊı
-	int bitree_count_leaf(bnode*T);			//¼ÆËãÒ¶×Ó½áµãÊı
-	int bitree_count_degree_1(bnode*T);//¼ÆËã¶ÈÎª1µÄ½áµãÊı
-	int bitree_deepth(bnode*T);				//¼ÆËã¶ş²æÊ÷µÄÉî¶È
-	bnode* swap(bnode*T);						//½»»»¶ş²æÊ÷µÄ×óÓÒ×ÓÊ÷
-	bnode* copy(bnode*T);						//¸´ÖÆÒ»¿Ã¶ş²æÊ÷
+	void creat_Bitree();			//åˆå§‹åŒ–äºŒå‰æ ‘
+	void input(bnode **T);			//äºŒçº§æŒ‡é’ˆé€’å½’è¾“å…¥äºŒå‰æ ‘
+	bnode* input2(bnode*T);			//é€šè¿‡è¿”å›å€¼é€’å½’è¾“å…¥äºŒå‰æ ‘
+	void preorder_output(bnode *T);		//å…ˆåºéå†
+	void inorder_output(bnode *T);		//ä¸­åºéå†
+	void lastorder_output(bnode *T);	//ååºéå†
+	int bitree_count_all(bnode*T);		//è®¡ç®—æ€»ç»“ç‚¹æ•°
+	int bitree_count_leaf(bnode*T);		//è®¡ç®—å¶å­ç»“ç‚¹æ•°
+	int bitree_count_degree_1(bnode*T);	//è®¡ç®—åº¦ä¸º1çš„ç»“ç‚¹æ•°
+	int bitree_deepth(bnode*T);		//è®¡ç®—äºŒå‰æ ‘çš„æ·±åº¦
+	bnode* swap(bnode*T);			//äº¤æ¢äºŒå‰æ ‘çš„å·¦å³å­æ ‘
+	bnode* copy(bnode*T);			//å¤åˆ¶ä¸€æ£µäºŒå‰æ ‘
 private:
-	bnode *root;				//¸ãÒ»¸ö¸ù½Úµã
-	int count_all;				//¼ÆÊı×Ü½áµã
-	int count_leaf;			//¼ÆÊıÒ¶×Ó½áµã
-	int count_degree_1;	//¼ÆËã¶ÈÎª1µÄ½áµã
-}Bitree;//typedef°Ñ "struct Bitree" Õâ¸ö½á¹¹ÆğÁË¸öĞÂÃû×Ö½Ğ Bitree£¬ÄãÒ²¿ÉÒÔÆğÆäËûŒÅÕ¨ÌìµÄÃû×ÖÕÃÏÔÄãµÄÓ¢×Ë
+	bnode *root;		//æä¸€ä¸ªæ ¹èŠ‚ç‚¹
+	int count_all;		//è®¡æ•°æ€»ç»“ç‚¹
+	int count_leaf;		//è®¡æ•°å¶å­ç»“ç‚¹
+	int count_degree_1;	//è®¡ç®—åº¦ä¸º1çš„ç»“ç‚¹
+}Bitree;
 
-//³õÊ¼»¯¶ş²æÊ÷
+//åˆå§‹åŒ–äºŒå‰æ ‘
 void Bitree::creat_Bitree()
 {
 	root = NULL;
@@ -38,7 +44,7 @@ void Bitree::creat_Bitree()
 	count_degree_1 = 0;
 }
 
-//¶ş¼¶Ö¸Õëµİ¹éÊäÈë¶ş²æÊ÷//ÏÈĞòÊäÈë¶ş²æÊ÷
+//äºŒçº§æŒ‡é’ˆé€’å½’è¾“å…¥äºŒå‰æ ‘//å…ˆåºè¾“å…¥äºŒå‰æ ‘
 void Bitree::input(bnode **T)
 {
 	char ch;
@@ -56,7 +62,7 @@ void Bitree::input(bnode **T)
 		input(&(*T)->rchild);
 	}
 }
-//Í¨¹ı·µ»ØÖµµİ¹éÊäÈë¶ş²æÊ÷//ÏÈĞòÊäÈë¶ş²æÊ÷
+//é€šè¿‡è¿”å›å€¼é€’å½’è¾“å…¥äºŒå‰æ ‘//å…ˆåºè¾“å…¥äºŒå‰æ ‘
 bnode* Bitree::input2(bnode *T)
 {
 	char ch;
@@ -76,7 +82,7 @@ bnode* Bitree::input2(bnode *T)
 	return T;
 }
 
-//ÏÈĞò±éÀú¶ş²æÊ÷
+//å…ˆåºéå†äºŒå‰æ ‘
 void Bitree::preorder_output(bnode *T)
 {
 	if(T)
@@ -87,7 +93,7 @@ void Bitree::preorder_output(bnode *T)
 	}
 }
 
-//ÖĞĞò±éÀú¶ş²æÊ÷
+//ä¸­åºéå†äºŒå‰æ ‘
 void Bitree::inorder_output(bnode *T)
 {
 	if(T)
@@ -98,7 +104,7 @@ void Bitree::inorder_output(bnode *T)
 	}
 }
 
-//ºóĞò±éÀú¶ş²æÊ÷
+//ååºéå†äºŒå‰æ ‘
 void Bitree::lastorder_output(bnode *T)
 {
 	if (T)
@@ -109,7 +115,7 @@ void Bitree::lastorder_output(bnode *T)
 	}
 }
 
-//¼ÆËã½ÚµãÊı
+//è®¡ç®—èŠ‚ç‚¹æ•°
 int Bitree::bitree_count_all(bnode*T)
 {
 	if (T)
@@ -121,20 +127,20 @@ int Bitree::bitree_count_all(bnode*T)
 	return count_all;
 }
 
-//¼ÆËãÒ¶×Ó½áµãÊı
+//è®¡ç®—å¶å­ç»“ç‚¹æ•°
 int Bitree::bitree_count_leaf(bnode*T)
 {
 	if (T)
 	{
 		if (T->lchild == NULL&&T->rchild == NULL)
-			count_leaf++;//Èç¹û½áµãµÄ×óº¢×ÓºÍÓÒº¢×Ó¶¼Îª¿Õ£¬Ôò¸Ã½ÚµãÊÇÒ¶×Ó½áµã
+			count_leaf++;//å¦‚æœç»“ç‚¹çš„å·¦å­©å­å’Œå³å­©å­éƒ½ä¸ºç©ºï¼Œåˆ™è¯¥èŠ‚ç‚¹æ˜¯å¶å­ç»“ç‚¹
 		bitree_count_leaf(T->lchild);
 		bitree_count_leaf(T->rchild);
 	}
 	return count_leaf;
 }
 
-//¼ÆËã¶ÈÎª1µÄ½áµã¸öÊı
+//è®¡ç®—åº¦ä¸º1çš„ç»“ç‚¹ä¸ªæ•°
 int Bitree::bitree_count_degree_1(bnode*T)
 {
 	if (T)
@@ -147,7 +153,7 @@ int Bitree::bitree_count_degree_1(bnode*T)
 	return count_degree_1;
 }
 
-//¼ÆËã¶ş²æÊ÷µÄÉî¶È£¨¸ß¶È£©
+//è®¡ç®—äºŒå‰æ ‘çš„æ·±åº¦ï¼ˆé«˜åº¦ï¼‰
 int Bitree::bitree_deepth(bnode*T)
 {
 	int i, j;
@@ -166,11 +172,11 @@ int Bitree::bitree_deepth(bnode*T)
 	return i > j ? i + 1 : j + 1;
 }
 
-//½»»»×óÓÒ×ÓÊ÷
+//äº¤æ¢å·¦å³å­æ ‘
 bnode* Bitree::swap(bnode*T)
 {
 	if (!T || !T->lchild && !T->rchild)
-		return T;//Ã»ÓĞ¸ù½áµã»òÖ»ÓĞ¸ù½áµã
+		return T;//æ²¡æœ‰æ ¹ç»“ç‚¹æˆ–åªæœ‰æ ¹ç»“ç‚¹
 	bnode*p = new bnode;
 	p = T->lchild;
 	T->lchild = T->rchild;
@@ -186,7 +192,7 @@ bnode* Bitree::swap(bnode*T)
 	return T;
 }
 
-//¶ş²æÊ÷µÄ¸´ÖÆ
+//äºŒå‰æ ‘çš„å¤åˆ¶
 bnode* Bitree::copy(bnode*T)
 {
 	bnode*new_bnode;
